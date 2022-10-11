@@ -26,16 +26,16 @@ class MainActivity : AppCompatActivity() {
         binding.iBPlus.setOnClickListener(){
             betPlus += 10
             binding.tvSumBet.text = betPlus.toString()
-            if(betPlus > score){
+            if(betPlus >= score){
                 binding.tvYWin.visibility = View.VISIBLE
                 binding.tvYWin.text = "Ставка не может превышать сумму на счете"
-                betPlus = score - 20
+                betPlus = score - 10
                 }else{}
         }
         binding.iBMinus.setOnClickListener(){
             betPlus -= 10
             binding.tvSumBet.text = betPlus.toString()
-            if (betPlus < 0){
+            if (betPlus <= 0){
                 binding.tvSumBet.text = "Cтавка не должна быть меньше 0"
             }
         }
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                 var win = betPlus * 2
                 score += win
                 binding.tvYWin.visibility = View.VISIBLE
-                binding.tvYWin.text = "Выигрыш составляет: $win"
+                binding.tvYWin.text = "Выигрыш составляет: $win (x2)"
                 binding.tvScore.text = "Счет: $score"
                 if (win <= 0){
                     betPlus = 0
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                 var win = betPlus * 4
                 score += win
                 binding.tvYWin.visibility = View.VISIBLE
-                binding.tvYWin.text = "Выигрыш составляет: $win"
+                binding.tvYWin.text = "Выигрыш составляет: $win (x4)"
                 binding.tvScore.text = "Счет: $score"
                 if (win <= 0){
                     betPlus = 0
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                 var win = betPlus * 6
                 score += win
                 binding.tvYWin.visibility = View.VISIBLE
-                binding.tvYWin.text = "Выигрыш составляет: $win"
+                binding.tvYWin.text = "Выигрыш составляет: $win (x6)"
                 binding.tvScore.text = "Счет: $score"
                 if (win <= 0){
                     betPlus = 0
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                 var win = betPlus * 10
                 score += win
                 binding.tvYWin.visibility = View.VISIBLE
-                binding.tvYWin.text = "Выигрыш составляет: $win"
+                binding.tvYWin.text = "Выигрыш составляет: $win (x10)"
                 binding.tvScore.text = "Счет: $score"
                 if (win <= 0){
                     betPlus = 0
@@ -115,6 +115,7 @@ class MainActivity : AppCompatActivity() {
                     binding.tvYWin.text = "Необходимо сделать ставку"
                 }else{}
             }else{
+
                 score -= betPlus
                 binding.tvYWin.visibility = View.VISIBLE
                 binding.tvYWin.text = "Нет выигрышных комбинаций"
